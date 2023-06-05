@@ -67,6 +67,7 @@
         android:shadowDx="3"
         android:shadowDy="4"
         android:shadowRadius="2"
+        android:drawableEnd="@drawable/baseline_arrow_forward_24"
         android:text="@string/next_button"
         app:cornerRadius="10dp" />
 
