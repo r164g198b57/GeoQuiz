@@ -1,5 +1,7 @@
 package com.github.r164g198b57.geoquiz
 
+
+import android.app.ActivityOptions
 import android.os.Bundle
 import android.util.Log
 import android.view.View
@@ -34,6 +36,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "onCreate(Bundle?) called")
@@ -60,9 +63,12 @@ class MainActivity : AppCompatActivity() {
             checkAnswer(false)
         }
 
-        cheatButton.setOnClickListener {
+        cheatButton.setOnClickListener { view ->
             val answerIsTrue = quizViewModel.currentQuestionAnswer
             val intent = CheatActivity.newIntent(this@MainActivity, answerIsTrue)
+            val options =
+                ActivityOptions.makeClipRevealAnimation(view, 0, 0, view.width, view.height)
+            intent.putExtras(options.toBundle())
             cheatActivityResultLauncher.launch(intent)
         }
 
@@ -70,7 +76,6 @@ class MainActivity : AppCompatActivity() {
             quizViewModel.moveToNext()
             updateQuestion()
         }
-
         updateQuestion()
     }
 

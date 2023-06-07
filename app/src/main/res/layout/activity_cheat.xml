@@ -42,4 +42,11 @@
         app:cornerRadius="10dp"
         android:text="@string/show_answer_button" />
 
+    <TextView
+        android:id="@+id/apiTxt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/apiV" />
+
 </LinearLayout>
